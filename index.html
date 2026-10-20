@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="SSC ও HSC শিক্ষার্থীদের প্রশ্নের সমাধান, সহজ ব্যাখ্যা, chapter summary এবং short notes তৈরির জন্য একটি শিক্ষামূলক AI study assistant prototype।">
+  <title>StudyMate AI — SSC &amp; HSC Study Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="StudyMate AI homepage">
+      <span class="brand-mark" aria-hidden="true">S</span>
+      <span>
+        <strong>StudyMate AI</strong>
+        <small>SSC • HSC Learning Assistant</small>
+      </span>
+    </a>
+    <span class="status-pill"><span class="status-dot" aria-hidden="true"></span> Study mode</span>
+  </header>
+
+  <main class="container" id="home">
+    <section class="hero" aria-labelledby="pageTitle">
+      <div class="eyebrow">YOUR PERSONAL STUDY PARTNER</div>
+      <h1 id="pageTitle">পড়াশোনা হোক <span>আরও সহজ</span></h1>
+      <p>প্রশ্ন করো, ধাপে ধাপে বুঝে নাও, আর নিজের শেখার আত্মবিশ্বাস বাড়াও।</p>
+    </section>
+
+    <section class="workspace" aria-label="প্রশ্ন জমা দেওয়ার জায়গা">
+      <div class="field-grid">
+        <label class="field" for="level">
+          <span>শিক্ষার স্তর</span>
+          <select id="level" name="level">
+            <option value="SSC">SSC</option>
+            <option value="HSC">HSC</option>
+          </select>
+        </label>
+
+        <label class="field" for="subject">
+          <span>বিষয়</span>
+          <select id="subject" name="subject" aria-label="বিষয় নির্বাচন"></select>
+        </label>
+
+        <label class="field" for="task">
+          <span>কী সাহায্য দরকার?</span>
+          <select id="task" name="task">
+            <option value="solve">প্রশ্নের সমাধান</option>
+            <option value="explain">সহজ ব্যাখ্যা</option>
+            <option value="summary">Chapter summary</option>
+            <option value="notes">Short notes</option>
+            <option value="practice">Practice questions</option>
+            <option value="grammar">Grammar / writing help</option>
+          </select>
+        </label>
+
+        <label class="field" for="language">
+          <span>উত্তরের ভাষা</span>
+          <select id="language" name="language">
+            <option value="বাংলা">বাংলা</option>
+            <option value="English">English</option>
+            <option value="সহজ বাংলা ও English terms">সহজ বাংলা + English terms</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="question-label" for="question">তোমার প্রশ্ন লিখো</label>
+      <textarea
+        id="question"
+        name="question"
+        rows="6"
+        maxlength="8000"
+        autocomplete="off"
+        placeholder="যেমন: নিউটনের দ্বিতীয় সূত্রটি ব্যাখ্যা করো এবং একটি উদাহরণ দাও..."
+        aria-describedby="charCount privacyNote"
+      ></textarea>
+
+      <div class="input-footer">
+        <span id="charCount" aria-live="polite">0 / 8000</span>
+        <button id="clearBtn" class="text-button" type="button">মুছে ফেলো</button>
+      </div>
+
+      <div class="action-row">
+        <button id="solveBtn" class="primary-button" type="button">
+          <span aria-hidden="true">✦</span> সমাধান তৈরি করো
+        </button>
+        <button id="demoBtn" class="secondary-button" type="button">নমুনা দেখো</button>
+      </div>
+      <p class="privacy-note" id="privacyNote">শেখার জন্য তৈরি। AI-এর উত্তর ভুল হতে পারে—পাঠ্যবই ও শিক্ষকের সঙ্গে মিলিয়ে নাও।</p>
+    </section>
+
+    <section id="answerSection" class="answer-card" hidden aria-live="polite" aria-labelledby="answerTitle">
+      <div class="answer-heading">
+        <div>
+          <div class="eyebrow">STUDY RESPONSE</div>
+          <h2 id="answerTitle">তোমার শেখার সহায়তা</h2>
+        </div>
+        <span class="answer-tag">Preview</span>
+      </div>
+      <div id="answerContent" class="answer-content"></div>
+      <p class="demo-warning" id="demoWarning">এটি শুধু interface-এর নমুনা, আসল AI উত্তর নয়।</p>
+    </section>
+
+    <section class="feature-grid" aria-label="ওয়েবসাইটের সুবিধা">
+      <article class="feature-card">
+        <span class="feature-icon" aria-hidden="true">∑</span>
+        <h3>ধাপে ধাপে সমাধান</h3>
+        <p>সূত্র, হিসাব এবং চূড়ান্ত উত্তর বোঝার জন্য পরিকল্পিত।</p>
+      </article>
+      <article class="feature-card">
+        <span class="feature-icon" aria-hidden="true">✎</span>
+        <h3>সহজ ব্যাখ্যা</h3>
+        <p>কঠিন বিষয় সহজ ভাষায় বুঝতে সাহায্য করবে।</p>
+      </article>
+      <article class="feature-card">
+        <span class="feature-icon" aria-hidden="true">▤</span>
+        <h3>Summary &amp; Notes</h3>
+        <p>Revision-এর জন্য মূল ধারণা ও নোট সাজানোর সুবিধা।</p>
+      </article>
+    </section>
+
+    <footer>
+      <strong>StudyMate AI</strong> <span>• Learning tool prototype</span>
+      <p>এটি শিক্ষামূলক সহায়ক টুল; পরীক্ষায় নকল করার জন্য নয়।</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
